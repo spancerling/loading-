@@ -1,0 +1,156 @@
+html body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+.load {
+  background: #ccc;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+#hole {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 100px;
+  border-radius: 50%;
+  background: #616161;
+}
+.animation1 {
+  animation: fadein 0.5s ease;
+}
+.animation2 {
+  animation: fadeout 0.5s ease 0.8s;
+  animation-fill-mode: forwards;
+}
+#boxLoading {  
+  width: 50px;
+  height: 50px;
+  background: #fde9c9;
+  border-radius: 3px;
+  position: absolute;
+  top: -50px;
+  left: 100px; 
+}
+.animation3 {
+  animation: drop 1s ease 0.3s ;
+}
+#box {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  position: absolute;
+  top:0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#box:before {
+  content: '';
+  width: 50px;
+  height: 5px;
+  background: #000;
+  position: absolute;
+  top: 59px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow .5s linear 1.3s infinite;
+  opacity: 0;
+}
+#box:after {
+  content: '';
+  width: 50px;
+  height: 50px;
+  background: #fde9c9;
+  border-radius: 3px;
+  animation: animate .5s linear 1.3s infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+@keyframes drop {
+  0% {
+    transform: translateY(55px) scale(0.1);
+  }
+  50% {
+    transform: scale(1) translate(250px,100px);
+  }
+  100% {
+    transform: scale(1) translate(560px,350px);
+  }
+} 
+
+@keyframes fadeout {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0; 
+    transform: scale(0);
+  }
+  40% {
+    opacity: 0.4;
+    transform: scale(0.4);
+  }
+  60% {
+    opacity: 0.6;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes animate {
+  0% {
+    opacity: 1;
+  }
+  17% {
+    border-bottom-right-radius: 3px;
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(18px) scale(1, .9) rotate(45deg);
+    border-bottom-right-radius: 40px;
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0px) rotate(90deg);
+    opacity: 1;
+    
+  }
+  
+}
+
+
+@keyframes shadow {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+
+
