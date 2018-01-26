@@ -18,8 +18,16 @@
 </body>
 
  <script type="text/javascript"> 
+   //兼容不同浏览器
+    var pfx = ["webkit", "moz", "MS", "o", ""];
+    function prefixedEventListener(element, type, callback) {
+        for (var p = 0; p < pfx.length; p++) {
+            if (!pfx[p]) type = type.toLowerCase();
+            element.bind(pfx[p]+type, callback);
+    }
+}
     var hole = $("#hole");
-    hole.bind("animationend",function(){
+    prefixedEventListener(hole,"Animationend",function(){
         hole.removeClass("animation1");
         hole.addClass("animation2");
 })
