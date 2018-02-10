@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8"/>
 	<title>loading</title>
-  <script src="jquery-1.10.2.min.js"></script>
   <link rel="stylesheet" href="loading.css"/>
 </head>
 <body>
@@ -18,19 +17,10 @@
 </body>
 
  <script type="text/javascript"> 
- //兼容不同浏览器
-    var pfx = ["webkit", "moz", "MS", "o", ""];
-    function prefixedEventListener(element, type, callback) {
-        for (var p = 0; p < pfx.length; p++) {
-            if (!pfx[p]) type = type.toLowerCase();
-            element.bind(pfx[p]+type, callback);
-    }
-}
-    var hole = $("#hole");
-    prefixedEventListener(hole,"Animationend",function(){
-        hole.removeClass("animation1");
-        hole.addClass("animation2");
-})
-
+    var hole = document.getElementById("hole");
+    hole.addEventListener("animationend",function(){
+        hole.classList.remove("animation1");
+        hole.classList.add("animation2");
+});
 </script>
 </html>
